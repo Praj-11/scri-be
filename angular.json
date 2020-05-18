@@ -88,9 +88,13 @@
               "src/assets"
             ],
             "styles": [
+              "/home/praj/IdeaProjects/AngularPath/Internshala/scri-be/node_modules/bootstrap/dist/css/bootstrap.min.js",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "/home/praj/IdeaProjects/AngularPath/Internshala/scri-be/node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "/home/praj/IdeaProjects/AngularPath/Internshala/scri-be/node_modules/jquery/dist/jquery.min.js"
+            ]
           }
         },
         "lint": {
