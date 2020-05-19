@@ -35,7 +35,7 @@
                               </small>
                         </div>
 
-                        <div class="alert alert-danger" *ngIf="myForm.controls['email'].touched && myForm.controls['email'].valid">
+                        <div class="alert alert-danger" *ngIf="myForm.controls['email'].touched && !myForm.controls['email'].valid">
                               A valid email is required.
                         </div>
 
@@ -49,7 +49,7 @@
                                    placeholder="Confirm Password" [formControl]="myForm.controls['confirmPassword']">
                         </div>
 
-                        <div class="alert alert-danger" *ngIf="myForm.controls['password'].touched && myForm.controls['password'].valid">
+                        <div class="alert alert-danger" *ngIf="myForm.controls['password'].touched && !myForm.controls['password'].valid">
                             Password should be atleast 8 characters long.
                         </div>
 
@@ -58,8 +58,17 @@
                                       class="btn btn-block btn-warning" [disabled]="!myForm.valid">Submit</button>
                         </div>
                       </form>
+
+                      {{myForm.controls['confirmPassword'].errors | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }}
                   </div>
               </div>
+          </div>
+          <div class="alert alert-success" *ngIf="message.length > 0">
+              {{ message }}
+          </div>
+
+          <div class="alert alert-danger" *ngIf="userError">
+              {{userError.message}}
           </div>
       </div>
   </div>
