@@ -2,12 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { PersonComponent } from './person/person.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import * as firebase from 'firebase/app';
-import  'firebase/auth';
+import 'firebase/auth';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { CapitalizePipe } from './capitalize.pipe';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBhhg5GCyxgclRrl07jy_VppbXuEqwoCxc',
@@ -24,9 +25,10 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    PersonComponent,
-    SignUpComponent
+    SignUpComponent,
+    LoginComponent,
+    HomeComponent,
+    CapitalizePipe,
    ],
     imports: [
         BrowserModule,

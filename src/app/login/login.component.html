@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="row">
+  <div class="offset-sm-3 col-sm-6">
+    <div class="card text-blank">
+      <div class="card-body">
+        <div class="card-title text-center">
+          <h5>Login using your email</h5>
+        </div>
+        <div class="card-text">
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Enter Email"
+                     name="email" [formControl]="myForm.controls['email']">
+            </div>
+            <div class="alert alert-danger" *ngIf="myForm.controls['email'].touched && !myForm.controls['email'].valid">
+              A valid Email is required.
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Enter Password"
+                     name="password" [formControl]="myForm.controls['password']">
+            </div>
+            <div class="alert alert-danger" *ngIf="myForm.controls['password'].touched && !myForm.controls['password'].valid">
+              A valid password is required.
+            </div>
+            <div class="text-center">
+              <button type="submit"
+                      class="btn btn-block btn-warning round" [disabled]="!myForm.valid">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-success" *ngIf="message.length > 0">
+      You have been logged in successfully.
+    </div>
+    <div class="alert alert-danger" *ngIf="userError">
+      {{userError.message}}
+    </div>
+  </div>
+</div>

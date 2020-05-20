@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import {group} from '@angular/animations';
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
-import {errorObject} from 'rxjs/internal-compatibility';
+import {AuthService} from '../auth.service';
 
 
 @Component({
@@ -17,7 +14,7 @@ export class SignUpComponent implements OnInit {
   message = '';
   userError: any;
 
-  constructor(public  fb: FormBuilder) {
+  constructor(public  fb: FormBuilder, public authService: AuthService) {
     this.myForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -51,25 +48,15 @@ export class SignUpComponent implements OnInit {
   onSubmit(signupform) {
     const email: string = signupform.value.email;
     const password: string = signupform.value.password;
-    const  firstName: string = signupform.value.firstName;
-    const  lastName: string = signupform.value.lastName;
+    const firstName: string = signupform.value.firstName;
+    const lastName: string = signupform.value.lastName;
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((response) => {
-        // console.log(response);
+    this.authService.signup(email, password, firstName, lastName).then((response) => {
 
-        const randomNumber = Math.floor(Math.random() * 1000);
-
-        response.user.updateProfile({
-          displayName: firstName + ' ' + lastName,
-          photoURL: 'https://api.adorable.io/avatars/' + randomNumber
-        }).then(() => {
-            this.message = 'You have been signed up sucessfully. Please Login.';
-            console.log(this.message);
-        });
-      }).catch((error) => {
-        console.log(error);
-        this.userError = error;
+      this.message = 'You have been signed up sucessfully. Please Login.';
+    }).catch((error) => {
+      console.log(error);
+      this.userError = error;
     });
   }
 }
