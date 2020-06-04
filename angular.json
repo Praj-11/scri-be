@@ -88,6 +88,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "/home/praj/IdeaProjects/AngularPath/Internshala/scri-be/node_modules/bootstrap/dist/css/bootstrap.min.js",
               "src/styles.css"
             ],
