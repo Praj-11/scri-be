@@ -1,1 +1,17 @@
-<p>create works!</p>
+<div class="row mt-5">
+  <div class="col">
+    <div class="form-group">
+      <label>Post Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Post Title" name="title" [(ngModel)]="title">
+    </div>
+
+    <div class="form-group">
+      <label>Post Content</label>
+      <ngx-text-editor [config]="editorConfig" [(ngModel)]="content"></ngx-text-editor>
+    </div>
+
+    <div class="form-group float-right">
+      <button (click)="createPost()" class="btn btn-warning round">Submit</button>
+    </div>
+  </div>
+</div>
