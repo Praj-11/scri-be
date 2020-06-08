@@ -17,6 +17,8 @@ import { CreateComponent } from './create/create.component';
 import {NgxTextEditorModule} from 'ngx-text-editor';
 import  {AngularEditorModule} from '@kolkov/angular-editor';
 import {HttpClientModule} from '@angular/common/http';
+import { PostComponent } from './post/post.component';
+import { ViewComponent } from './view/view.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBhhg5GCyxgclRrl07jy_VppbXuEqwoCxc',
@@ -41,6 +43,8 @@ firebase.initializeApp(firebaseConfig);
     MyblogsComponent,
     ProfileComponent,
     CreateComponent,
+    PostComponent,
+    ViewComponent,
    ],
     imports: [
         BrowserModule,

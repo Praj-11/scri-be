@@ -24,7 +24,8 @@ export class MyblogsComponent implements OnInit {
   getPosts(){
     //get the list of posts from Firebase Database
 
-    firebase.firestore().collection("posts").get().then((querySnapshot) => {
+    firebase.firestore().collection("posts").orderBy("created", "desc").get()
+      .then((querySnapshot) => {
 
       console.log(querySnapshot.docs);
       this.posts = querySnapshot.docs;
@@ -35,7 +36,14 @@ export class MyblogsComponent implements OnInit {
   }
 
   onPostCreated() {
-    //refrest the list of posts
+    //refresh the list of posts
+
+    this.posts = [];
+    this.getPosts()
+  }
+
+  onDelete() {
+    //refresh the list of posts
 
     this.posts = [];
     this.getPosts()
