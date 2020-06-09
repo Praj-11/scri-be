@@ -19,6 +19,7 @@ import  {AngularEditorModule} from '@kolkov/angular-editor';
 import {HttpClientModule} from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { ViewComponent } from './view/view.component';
+import { CommentsComponent } from './comments/comments.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBhhg5GCyxgclRrl07jy_VppbXuEqwoCxc',
@@ -45,6 +46,7 @@ firebase.initializeApp(firebaseConfig);
     CreateComponent,
     PostComponent,
     ViewComponent,
+    CommentsComponent,
    ],
     imports: [
         BrowserModule,
