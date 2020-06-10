@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
     }
 
     firebase.auth().onAuthStateChanged((user) => {
-
+      this.user = user
       if (user){
         this.loggedIn = true;
       }else {

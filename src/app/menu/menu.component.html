@@ -27,8 +27,8 @@
         <button class="btn btn-outline-light px-5" routerLink="/login">Login</button>
       </li>
 
-      <li class="nav-item right" *ngIf="loggedIn" routerLinkActive="active">
-        <a class="nav-link" routerLink="/">My Profile</a>
+      <li class="nav-item right" *ngIf="loggedIn">
+        <a class="nav-link" [routerLink]="'/profile/' + user.uid">My Profile</a>
       </li>
       <li class="nav-item right" *ngIf="loggedIn">
         <a class="nav-link" routerLink="/" (click)="logout()">Log out</a>
